@@ -1,0 +1,18 @@
+{
+    "routes" : [
+        {
+            "path": "/api/v1/cms/sites/%siteId%/nodes/%revision%",
+            "controller": "ride\\wra\\cms\\controller\\SiteController",
+            "action": "siteNodesAction",
+            "id": "cms.rest.site.nodes",
+            "methods": "GET"
+        },
+        {
+            "path": "/api/v1/cms/sites/%siteId%/nodes",
+            "controller": "ride\\wra\\cms\\controller\\SiteController",
+            "action": "siteNodesAction",
+            "id": "cms.rest.site.nodes.defaultRevision",
+            "methods": "GET"
+        }
+    ]
+}

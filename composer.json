@@ -1,0 +1,22 @@
+{
+    "name": "ride/wra-cms",
+    "description": "API calls for the CMS layer",
+    "license": "MIT",
+    "version": "0.1.0",
+    "authors": [
+        {
+            "name": "Brent Roose",
+            "email": "brent@statik.be"
+        }
+    ],
+    "require": {
+        "ride/lib-http" : "*",
+        "ride/lib-i18n" : "*",
+        "ride/web-cms" : "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "ride\\wra\\cms": ["src/"]
+        }
+    }
+}
