@@ -1,24 +1,31 @@
 {
     "routes" : [
         {
-            "path": "/api/v1/cms/site/%siteId%/urlVariables/%revision%",
+            "path": "/api/v1/cms/sites/url-variables",
             "controller": "ride\\wra\\cms\\controller\\SiteController",
-            "action": "siteUrlVariablesAction",
-            "id": "api.cms.site.urlVariables",
+            "action": "urlVariablesAction",
+            "id": "api.cms.sites.variables.url",
             "methods": "GET"
         },
         {
-            "path": "/api/v1/cms/site/%siteId%/urlVariables",
+            "path": "/api/v1/cms/sites/url-variables/%revision%",
             "controller": "ride\\wra\\cms\\controller\\SiteController",
-            "action": "siteUrlVariablesAction",
-            "id": "api.cms.site.urlVariables.defaultRevision",
+            "action": "urlVariablesAction",
+            "id": "api.cms.sites.variables.url.revision",
             "methods": "GET"
         },
         {
-            "path": "/api/v1/cms/sites/urlVariables",
+            "path": "/api/v1/cms/sites/%siteId%/url-variables",
             "controller": "ride\\wra\\cms\\controller\\SiteController",
-            "action": "sitesUrlVariablesAction",
-            "id": "api.cms.sites.urlVariables",
+            "action": "urlVariablesAction",
+            "id": "api.cms.sites.variables.url.site",
+            "methods": "GET"
+        },
+        {
+            "path": "/api/v1/cms/sites/%siteId%/url-variables/%revision%",
+            "controller": "ride\\wra\\cms\\controller\\SiteController",
+            "action": "urlVariablesAction",
+            "id": "api.cms.sites.variables.url.site.revision",
             "methods": "GET"
         }
     ]

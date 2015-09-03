@@ -17,29 +17,6 @@ class SiteController extends AbstractController {
      */
     private $cms;
 
-    /**
-     * Get the nodes of a site and an optional revision. The response is parsed to work with Redactor
-     *
-     * @param Cms $cms
-     * @param Request $request
-     * @param I18n $i18n
-     * @param string $siteId
-     * @param string $revision
-     *
-     * @return Response
-     */
-    public function siteUrlVariablesAction(Cms $cms, Request $request, I18n $i18n, $siteId, $revision=null) {
-        $this->cms = $cms;
-
-        // Get the default revision if not set
-        if (!$revision) {
-            $revision = $this->cms->getDefaultRevision();
-        }
-
-        // Get the nodes and set the response
-        $nodes = $this->getNodesForSite($siteId, $revision, $i18n->getLocale()->getCode());
-        $this->setJsonView($nodes);
-    }
 
     /**
      * Get the nodes of all sites. The response is parsed to work with Redactor
@@ -52,10 +29,16 @@ class SiteController extends AbstractController {
      *
      * @return Response
      */
-    public function sitesUrlVariablesAction(Cms $cms, Request $request, I18n $i18n) {
+    public function urlVariablesAction(Cms $cms, Request $request, I18n $i18n, $siteId=null, $revision=null) {
         $this->cms = $cms;
-        $revision = $this->cms->getDefaultRevision();
+        if (!$revision) {
+            $revision = $this->cms->getDefaultRevision();
+        }
+
         $sites = $this->cms->getSites();
+        if ($siteId) {
+            $sites = [$siteId=>$siteId];
+        }
         $locale = $i18n->getLocale()->getCode();
         $nodes = [];
 
@@ -97,7 +80,7 @@ class SiteController extends AbstractController {
         foreach ($nodeList as $id=>$url) {
             if ($id) {
                 $nodeId = $nodes[$id]->getId();
-                $result[] = [ 'name' => $url, 'url' => "[[page.$siteId.$nodeId.$locale.url]]" ];
+                $result[] = [ 'name' => $url, 'url' => "[[page.$siteId.$nodeId.url.$locale]]" ];
             }
         }
 
