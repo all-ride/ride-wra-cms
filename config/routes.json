@@ -1,17 +1,24 @@
 {
     "routes" : [
         {
-            "path": "/api/v1/cms/sites/%siteId%/nodes/%revision%",
+            "path": "/api/v1/cms/site/%siteId%/urlVariables/%revision%",
             "controller": "ride\\wra\\cms\\controller\\SiteController",
-            "action": "siteNodesAction",
-            "id": "cms.rest.site.nodes",
+            "action": "siteUrlVariablesAction",
+            "id": "api.cms.site.urlVariables",
             "methods": "GET"
         },
         {
-            "path": "/api/v1/cms/sites/%siteId%/nodes",
+            "path": "/api/v1/cms/site/%siteId%/urlVariables",
             "controller": "ride\\wra\\cms\\controller\\SiteController",
-            "action": "siteNodesAction",
-            "id": "cms.rest.site.nodes.defaultRevision",
+            "action": "siteUrlVariablesAction",
+            "id": "api.cms.site.urlVariables.defaultRevision",
+            "methods": "GET"
+        },
+        {
+            "path": "/api/v1/cms/sites/urlVariables",
+            "controller": "ride\\wra\\cms\\controller\\SiteController",
+            "action": "sitesUrlVariablesAction",
+            "id": "api.cms.sites.urlVariables",
             "methods": "GET"
         }
     ]
