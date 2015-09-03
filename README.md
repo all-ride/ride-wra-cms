@@ -1,4 +1,4 @@
-# Ride WRA CMS
+# Ride wra-cms
 
 This module provides API calls for the CMS layer.
 
